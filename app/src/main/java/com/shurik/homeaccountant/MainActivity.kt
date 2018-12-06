@@ -2,26 +2,21 @@ package com.shurik.homeaccountant
 
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
-import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.preference.R.attr.fragment
-import android.util.Log
 import com.shurik.homeaccountant.utils.replaceFragments
 import kotlinx.android.synthetic.main.fragment_start.*
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var bottomNavigationView : BottomNavigationView
-    private lateinit var savedInstanceState : Bundle
 
     override fun onCreate(savedInstanceState : Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        bottomNavigationView = findViewById(R.id.bottom_nav)
+        //getting reference of bottom nav and applying listener on it
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_nav)
         bottomNavigationView.setOnNavigationItemSelectedListener (mOnNavigationItemSelectedListener)
 
-        onSetHomeFragment()
-
+        //making start fragment visible
         replaceFragments(
                 fragment = StartFragment(),
                 allowStateLoss = true,
@@ -30,6 +25,7 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+//bottom navigation listener
 private val mOnNavigationItemSelectedListener =
         BottomNavigationView.OnNavigationItemSelectedListener { p0 ->
     when (p0.itemId) {
@@ -82,17 +78,18 @@ private val mOnNavigationItemSelectedListener =
 }
 
     override fun onBackPressed() {
-
+        //getting current fragment name and converting it to string
         val fragment = supportFragmentManager.fragments
         val string = fragment.toString()
         val index1 = string.indexOf('[') +1
         val index2 = string.indexOf('{')
         val mFragmentTag = if (index1 == -1 && index2 == -1) null else string.substring(index1,index2)
-        Log.d("FRAGMENTS",mFragmentTag)
+        //if we are on start fragment and using web view, we navigating on there
         if (mFragmentTag=="StartFragment") {
                 if (web_view.canGoBack()) {
                     web_view.goBack()
                 }
+            //if not - we leave an app
             else {
                     super.onBackPressed()
                 }
@@ -101,12 +98,4 @@ private val mOnNavigationItemSelectedListener =
             super.onBackPressed()
             }
         }
-
-    private fun onSetHomeFragment() {
-        val fragment: Fragment = StartFragment()
-        val mTransaction = supportFragmentManager.beginTransaction()
-                .replace(R.id.content_frame, fragment,fragment.javaClass.simpleName)
-        mTransaction.commit()
-        bottomNavigationView.selectedItemId
-    }
 }
