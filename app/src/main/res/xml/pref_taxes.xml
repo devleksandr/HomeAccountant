@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="@string/t_l">
+
+        <EditTextPreference
+            android:defaultValue="0.0"
+            android:key="@string/key_light1"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/l1"
+            android:summary="Свет1"/>
+
+        <EditTextPreference
+            android:defaultValue="0.0"
+            android:key="@string/key_light2"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/l2"
+            android:summary="Свет2"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/w">
+
+        <EditTextPreference
+            android:defaultValue="0.0"
+            android:key="@string/key_water"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/tax"
+            android:summary="Вода"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/g">
+
+        <EditTextPreference
+            android:defaultValue="0.0"
+            android:key="@string/key_gas"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/tax"
+            android:summary="Газ"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/a">
+
+        <EditTextPreference
+            android:defaultValue="0.0"
+            android:key="@string/key_apt"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/total_price"
+            android:summary="Квартплата"/>
+    </PreferenceCategory>
+
+</PreferenceScreen>
