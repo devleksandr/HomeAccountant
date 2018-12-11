@@ -47,15 +47,6 @@ private val mOnNavigationItemSelectedListener =
             return@OnNavigationItemSelectedListener true
         }
 
-        R.id.navigation_accruals -> {
-            replaceFragments(
-                    fragment = AccrualsListFragment(),
-                    allowStateLoss = true,
-                    containerViewId = R.id.content_frame
-            )
-            return@OnNavigationItemSelectedListener true
-        }
-
         R.id.navigation_counts -> {
             replaceFragments(
                     fragment = CountListFragment(),

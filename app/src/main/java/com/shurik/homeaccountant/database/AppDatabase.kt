@@ -5,7 +5,7 @@ import android.arch.persistence.room.Room
 import android.arch.persistence.room.RoomDatabase
 import android.content.Context
 
-@Database (entities = [Counts::class],version = 10,exportSchema = false)
+@Database (entities = [Counts::class],version = 12,exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun countsDao() : CountsDao
