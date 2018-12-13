@@ -21,7 +21,6 @@ class Counts (@PrimaryKey (autoGenerate = true) var id : Int?,
               @ColumnInfo (name = "aptPrice") var aptPrice : Double,
               @ColumnInfo (name = "total") var total : Double,
               @ColumnInfo (name = "date") var date : String)
-
 {
     constructor():this (null,0,0,0,0.0,0,
             0,0,0.0,0,0,0,0.0,0.0,0.0,"")

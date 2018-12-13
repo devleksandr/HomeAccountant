@@ -62,6 +62,8 @@
     <string name="t_l">Свет</string>
     <string name="tax">Тариф</string>
     <string name="total_price">Стоимость</string>
-    <string name="toast_wtf">Не удалось получить данные из базы данных</string>
+    <string name="toast_wtf">Не удалось получить данные из базы</string>
     <string name="no_data_available">Добавьте показатели для отображения в списке</string>
+    <string name="enter_all_pls">Введите все показатели!</string>
+    <string name="saved">Сохранено!</string>
 </resources>

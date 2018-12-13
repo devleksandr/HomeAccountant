@@ -6,13 +6,11 @@ import android.support.v7.preference.PreferenceFragmentCompat
 
 class TaxesFragment : PreferenceFragmentCompat(), SharedPreferences.OnSharedPreferenceChangeListener {
 
-
     companion object {
         fun newInstance(): TaxesFragment {
             return TaxesFragment()
         }
     }
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

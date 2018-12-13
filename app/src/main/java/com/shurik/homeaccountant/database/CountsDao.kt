@@ -13,7 +13,7 @@ interface CountsDao {
         const val DATE = "date"
     }
 
-    @Query("SELECT * from counts")
+    @Query("SELECT * from counts ORDER BY id DESC")
     fun getCounts() : List<Counts>
 
     @Query("SELECT  * FROM counts ORDER BY id DESC LIMIT 1")

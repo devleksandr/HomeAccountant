@@ -34,12 +34,13 @@ class CountsAdapter(private val counts: List<Counts>) : RecyclerView.Adapter<Cou
     }
 
     override fun onBindViewHolder(holder: CountsHolder, position: Int) {
+        val date = onBuildDate()
         val light = onBuildLight()
         val water = onBuildWater()
         val gas = onBuildGas()
         val apt = onBuildApt()
         val total = onBuildTotal()
-        val item = light + water + gas + apt + total
+        val item = date + light + water + gas + apt + total
         holder.tvCounts.text = item
     }
 
@@ -47,21 +48,26 @@ class CountsAdapter(private val counts: List<Counts>) : RecyclerView.Adapter<Cou
         return counts.size
     }
 
+    private fun onBuildDate() : String {
+        val date =  counts.component1().date
+        return date + "\n"
+    }
+
     private fun onBuildLight() : String {
         val lightDiff = counts.component1().lightDiff.toString()
-        val lightPrice = counts.component2().lightPrice.toString()
+        val lightPrice = counts.component1().lightPrice.toString()
         return "Свет:" + lightDiff + "кВт," + lightPrice + "грн.\n"
     }
 
     private fun onBuildWater() : String {
         val waterDiff = counts.component1().waterDiff.toString()
-        val waterPrice = counts.component2().waterPrice.toString()
+        val waterPrice = counts.component1().waterPrice.toString()
         return "Вода:" + waterDiff + "м.куб.," + waterPrice + "грн.\n"
     }
 
     private fun onBuildGas() : String {
         val gasDiff = counts.component1().gasDiff.toString()
-        val gasPrice = counts.component2().gasPrice.toString()
+        val gasPrice = counts.component1().gasPrice.toString()
         return "Газ:" + gasDiff + "м.куб.," + gasPrice + "грн.\n"
     }
 
